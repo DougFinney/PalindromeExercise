@@ -15,13 +15,20 @@ namespace PalindromeExercise
 
         public bool IsAPalindrome(string word)
         {
+            if (word== null || word.Length == 0)
+            { 
+                return false; 
+            }
+            
             var reversed = "";
 
-            for (var i = word.Length - 1; i >= 0; i--)
+            var noSpaces = word.Replace(" ", "");
+
+            for (var i = noSpaces.Length - 1; i >= 0; i--)
             {
-                reversed += word.ToLower()[i];
+                reversed += noSpaces.ToLower()[i];
             }
-            if(reversed == word.ToLower())
+            if(reversed == noSpaces.ToLower())
             {
                 return true;
             }
